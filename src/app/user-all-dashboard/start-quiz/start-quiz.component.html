@@ -1,0 +1,124 @@
+<div *ngIf="isSubmitted===false">
+  <div class="divider">
+    <button class="btn btn-primary m-2 border-purple color-white text-center" (click)="exitScreen()">Submit the
+      Quiz</button>
+  </div>
+  <div class="row">
+    <div>
+
+    </div>
+    <div class="col-10 container" style="z-index: 1;">
+      <div class="card container " *ngFor="let q of questions; let i=index" style="margin-top:2% ;">
+          <div class="card-body row" style="height: 1%;">
+            <b>Question {{i+1}} :</b>
+            <p class="card-header col-11 text-simple"> <span [innerHTML]="q.content"></span></p>
+
+
+          </div>
+          <div class="card-body m-2">
+
+
+            <div class="row container">
+
+              <input type="radio" class="form-check-input input-color col-md-1" [(ngModel)]="q.giveAnswer" [value]="q.option1"
+                name="{{q.questionid}}" />
+
+              <p class="col-md-5 ">A) {{q.option1}}</p>
+              <input class="form-check-input input-color col-md-1" [(ngModel)]="q.giveAnswer" [value]="q.option2"
+                name="{{q.questionid}}" type="radio" />
+
+              <p class="col-md-5">B) {{q.option2}}</p>
+            </div>
+            <div class="row container">
+              <input class="form-check-input input-color col-md-1" [(ngModel)]="q.giveAnswer" [value]="q.option3"
+                name="{{q.questionid}}" type="radio" />
+
+              <p class="col-md-5">C) {{q.option3}}</p>
+              <input class="form-check-input input-color col-md-1" [(ngModel)]="q.giveAnswer" [value]="q.option4"
+                name="{{q.questionid}}" type="radio" />
+
+              <p class="col-md-5">D) {{q.option4}}</p>
+            </div>
+
+            <hr>
+
+
+          </div>
+      </div>
+    </div>
+    <div class="col-2  mt-4  " style=" position: sticky;">
+      <mat-card style="position: fixed;">
+        <mat-card-header>
+          <mat-card-title>Progress</mat-card-title>
+          <mat-card-subtitle>Quiz Automatically submitted when times up. </mat-card-subtitle>
+        </mat-card-header>
+        <p class="text-center">{{this.getPerfectTime()}}</p>
+        <mat-card-content>
+          <mat-spinner
+            mode="determinate"
+            color="primary"
+            style="margin: auto;"
+            [value]="(this.timer/(this.questions[0].quiz.timeOfQuiz*60))*100"
+
+          ></mat-spinner>
+        </mat-card-content>
+        <mat-card-content>
+          <ul>
+            <li>Do not Refresh page.</li>
+            <li>Do not use right click.</li>
+            <li>Do not back the page.</li>
+            <li>Do not use F12,F8 keys.</li>
+            <li>Do not Open Console.</li>
+          </ul>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+  </div>
+  <div class="divider">
+    <button class="btn btn-primary m-2 border-purple color-white text-center" (click)="exitScreen()">Submit the
+      Quiz</button>
+  </div>
+</div>
+<div *ngIf="isSubmitted" class="container " style="width: 50%; margin-top: 10%;">
+  <h2 class="text-center">Result Declared</h2>
+  <div class="row ">
+
+    <div class="col-md-6 col-xl-6">
+      <div class="card bg-success text-white mb-3">
+        <div class="card-header">Correct Attempted</div>
+        <div class="card-body">
+          <h5 class="card-title text-white">{{this.correctAnswers}}</h5>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-xl-6">
+      <div class="card bg-danger text-white mb-3">
+        <div class="card-header">Wrong-Not Attempted</div>
+        <div class="card-body">
+          <h5 class="card-title text-white">{{this.questions[0].quiz.numberOfQuestions - this.correctAnswers}}</h5>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-md-12 col-xl-12">
+      <div class="card bg-primary text-white mb-3">
+        <div class="card-header">Overview</div>
+        <div class="card-body">
+          <!-- <p class="card-title text-white">Correct Answers : {{this.correctAnswers}}</p> -->
+          <h5 class="card-title text-white">Total Marks : {{this.totalMarks}}</h5>
+          <h5 class="card-title text-white">Percentage : {{this.percentage}}</h5>
+          <h4  class="card-title text-white">Status : {{this.percentage>35?"Pass":"Fail"}}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="divider">
+    <a class="btn btn-primary m-2 border-purple color-white text-center" href="/user">Go Home</a>
+    <button class="btn btn-primary m-2 border-purple color-white text-center" (click)="printResult()">Download Result</button>
+  </div>
+</div>

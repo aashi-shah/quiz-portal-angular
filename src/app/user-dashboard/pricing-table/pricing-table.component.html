@@ -1,0 +1,23 @@
+
+
+
+
+
+  <div class="cards " style="margin-top: 5%;">
+
+    <div class="card active">
+      <ul>
+        <li class="pack">Professional</li>
+        <li id="professional" class="price bottom-bar">Rs. 99 Only</li>
+        <li class="bottom-bar">Set Quiz</li>
+        <li class="bottom-bar">Show All User Details</li>
+        <li class="bottom-bar">Delete Attempts of User</li>
+
+        <li><button class="btn active-btn" style="display: {{ this.is_check== false?'block':'none'}}" (click)="getOrderTransaction(buySubscription)"  #buySubscription>Buy Subscription</button></li>
+        <li><button class="btn active-btn"  (click)="handleReq()">Get Confirmation</button></li>
+      </ul>
+    </div>
+
+  </div>
+
+

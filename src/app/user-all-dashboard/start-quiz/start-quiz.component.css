@@ -1,0 +1,29 @@
+.color-white:hover{
+  color: #fff;
+  background-color: #696cff;
+  border-color: #696cff;
+  box-shadow: 0 0.125rem 0.25rem 0 rgba(105, 108, 255, 0.4);
+}
+
+.border-purple{
+  border: rgb(105, 108, 255) 1px solid;
+  color: #696cff;
+}
+
+.border-purple:focus{
+  color: #fff;
+}
+.text-simple{
+ font-size: large;
+}
+
+.input-color{
+  padding-inline:8px ;
+}
+
+.input-color:checked
+{
+  background-color: #696cff;
+
+}
+

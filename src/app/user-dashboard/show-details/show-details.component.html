@@ -1,0 +1,39 @@
+<div>
+  <h2 class="text-center m-2">{{this.question[0].quiz.title}} Quiz</h2><br>
+  <h6 class="text-center m-2">Questions - {{this.question.length}}/{{this.question[0].quiz.numberOfQuestions}} Quiz</h6>
+
+  <hr>
+
+
+  <div class="card " *ngFor="let q of question; let i=index" style="margin-top:2% ;">
+    <div class="card-body row" style="height: 1%;">
+      <b>Question {{i+1}} :</b>
+      <p class="card-header col-8 text-simple"  > <span  [innerHTML]="q.content"></span></p>
+      <div class="btn-group col-4" style="display: inline; text-align: center;">
+        <button  class="btn  {{q.answer==q.giveAnswer ? 'btn-success':'btn-danger'}} ">{{q.answer==q.giveAnswer ? 'True':'False'}}</button>
+      </div>
+    </div>
+    <div class="card-body m-2">
+
+
+      <div class="row text-simple" >
+        <p class="col-md-6 {{q.option1 == q.answer ?'bg-success text-white':'' }} {{q.option1 == q.giveAnswer ? (q.option1==q.answer?'bg-success text-white':'bg-danger text-white'):'' }}  ">A) {{q.option1}}</p>
+        <p class="col-md-6 {{q.option2 == q.answer ?'bg-success text-white':'' }} {{q.option2 == q.giveAnswer ? (q.option2==q.answer?'bg-success text-white':'bg-danger text-white'):'' }} ">B) {{q.option2}}</p>
+      </div>
+      <div class="row text-simple">
+        <p class="col-md-6 {{q.option3 == q.answer  ?'bg-success text-white':'' }} {{q.option3 == q.giveAnswer ? (q.option3==q.answer?'bg-success text-white':'bg-danger text-white'):'' }} ">C) {{q.option3}}</p>
+        <p class="col-md-6 {{q.option4 == q.answer  ?'bg-success text-white':'' }} {{q.option4 == q.giveAnswer ? (q.option4==q.answer?'bg-success text-white':'bg-danger text-white'):'' }}  ">D) {{q.option4}}</p>
+      </div>
+
+      <!-- <hr> -->
+      <!-- <div class="row">
+        <h5>Answer : {{q.answer}}</h5>
+        <h5>Given Answer : {{q.giveAnswer}}</h5>
+      </div> -->
+
+    </div>
+  </div>
+  <div class="divider">
+    <button class="btn btn-primary m-2 border-purple color-white text-center" (click)="redirectHome()" >Home</button>
+  </div>
+</div>

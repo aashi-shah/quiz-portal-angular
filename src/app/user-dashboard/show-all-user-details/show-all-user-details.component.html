@@ -1,0 +1,35 @@
+<!-- Borderless Table -->
+<div class="container">
+  <div class="card " style=" margin-top: 2%">
+    <h5 class="card-header">Rank Table</h5>
+    <div class="table-responsive text-nowrap">
+      <table class="table table-borderless">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Quiz</th>
+            <th>Marks</th>
+            <th>Percentage</th>
+
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr *ngFor="let u of users;let i=index">
+            <td>{{i+1}}</td>
+            <td>{{u.user.firstName+" "+u.user.lastName}}</td>
+            <td>{{u.quiz.title}}</td>
+            <td>{{u.totalMarks +"/"+u.quiz.maxMarks}}</td>
+            <td>{{u.percentage}}%</td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="divider">
+  <a class="btn btn-primary m-2 border-purple color-white text-center" routerLink="/user" >Home</a>
+
+</div>

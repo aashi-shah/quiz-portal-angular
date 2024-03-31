@@ -1,0 +1,39 @@
+<div>
+  <h2 class="text-center m-2">{{this.quiz.title}} Quiz</h2><br>
+  <h6 class="text-center m-2">Questions - {{this.questions.length}}/{{this.quiz.numberOfQuestions}} Quiz</h6>
+
+  <hr>
+
+  <div class="card " *ngFor="let q of questions; let i=index" style="margin-top:2% ;">
+    <div class="card-body row" style="height: 1%;">
+      <b>Question {{i+1}} :</b>
+      <p class="card-header col-8 text-simple"  > <span  [innerHTML]="q.content"></span></p>
+        <div class="btn-group col-4" style="display: inline; ">
+          <button  class="btn  btn-info " (click)="updateQuestion(q.questionid)" >Update</button>
+          <button  class="btn  btn-warning " (click)="deleteQuestion(q.questionid)" >Delete</button>
+        </div>
+
+    </div>
+    <div class="card-body m-2">
+
+
+      <div class="row text-simple" >
+        <p class="col-md-6 " >A) {{q.option1}}</p>
+        <p class="col-md-6">B) {{q.option2}}</p>
+      </div>
+      <div class="row text-simple">
+        <p class="col-md-6">C) {{q.option3}}</p>
+        <p class="col-md-6">D) {{q.option4}}</p>
+      </div>
+
+      <hr>
+      <div class="row">
+        <h5>Answer : {{q.answer}}</h5>
+      </div>
+
+    </div>
+  </div>
+  <div class="divider">
+    <a class="btn btn-primary m-2 border-purple color-white text-center" routerLink="/admin/addQuestion" >Add Question</a>
+  </div>
+</div>

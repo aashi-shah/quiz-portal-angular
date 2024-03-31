@@ -1,0 +1,44 @@
+<div >
+  <h2 class="text-center m-2">Quiz - {{quiz.title}}</h2>
+  <h4 class="text-center m-2">Exam Instructions</h4>
+  <hr>
+
+  <div class="card " style="margin-top:2% ;">
+
+    <div class="card-body m-2">
+      <h5>Important Instruction</h5>
+      <ul>
+        <li>This Quiz can not decide your future but measure your knowledge.</li>
+        <li>You have to submit quiz with in <b>{{quiz.timeOfQuiz}}</b> minutes.</li>
+        <li>After Times up paper will automatically submitted.</li>
+        <li>There are total <b>{{quiz.numberOfQuestions}}</b> questions.</li>
+        <li>Each Question contain <b>{{quiz.maxMarks/quiz.numberOfQuestions}}</b> marks.</li>
+        <li>Each Question contain only one answer.</li>
+      </ul>
+      <h5>Point to be noted during examination</h5>
+      <ul>
+        <li>After Click on start the timer is started.</li>
+        <li>Do not Skip anything there is no minus marks in this exam.</li>
+        <li>Do not Refresh The page.</li>
+        <li>Do not press back button or any button.</li>
+        <li>Do not open console.</li>
+        <h5>In this cases exam directly submitted automatically.</h5>
+      </ul>
+
+
+    </div>
+  </div>
+  <div style="text-align: center; margin: 10px;">
+    <form [formGroup]="capcha" style="display: inline-block;">
+      <ngx-recaptcha2 #captchaElem
+        [siteKey]="siteKey"
+
+        formControlName="recaptcha">
+      </ngx-recaptcha2>
+    </form>
+  </div>
+  <div class="divider">
+
+    <!-- <button class="btn btn-primary m-2 border-purple color-white text-center" (click)="startExam()" >Start the Exam</button> -->
+  </div>
+</div>

@@ -1,0 +1,117 @@
+<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme ">
+
+
+  <div class="menu-inner-shadow"></div>
+
+
+  <ul class="menu-inner py-1">
+    <!-- Dashboard -->
+    <li class="menu-item" *ngIf="checkUserAdmin()">
+
+      <a routerLink="/admin"  class="menu-link">
+        <i class="menu-icon tf-icons bx bx-home-circle"></i>
+        <div data-i18n="Analytics">Dashboard</div>
+      </a>
+    </li>
+    <li class="menu-item" *ngIf="!checkUserAdmin()">
+
+      <a routerLink="/user"  class="menu-link">
+        <i class="menu-icon tf-icons bx bx-home-circle"></i>
+        <div data-i18n="Analytics">Dashboard</div>
+      </a>
+    </li>
+    <li class="menu-item active open">
+      <a href="javascript:void(0);" class="menu-link menu-toggle"><!--menu-toggle-->
+        <i class="menu-icon tf-icons bx bx-dock-top"></i>
+        <div data-i18n="Account Settings">Account Settings</div>
+      </a>
+      <ul class="menu-sub">
+        <li class="menu-item ">
+          <a routerLink="myaccount"   class="menu-link">
+            <div data-i18n="Account">Account</div>
+          </a>
+        </li>
+
+        <li class="menu-item ">
+          <a  routerLink="myconnections" class="menu-link">
+            <div data-i18n="Connections">Connections</div>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li class="menu-item active open" *ngIf="checkUserAdmin()">
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <i class="menu-icon tf-icons bx bx-dock-top"></i>
+        <div data-i18n="Layouts">Admin Tools</div>
+      </a>
+      <ul class="menu-sub" >
+        <li class="menu-item ">
+          <a routerLink="showCategories" class="menu-link">
+            <div data-i18n="Account">Show Categories</div>
+          </a>
+        </li>
+
+        <li class="menu-item ">
+          <a  routerLink="addCategory" class="menu-link">
+            <div data-i18n="Connections">Add Categories</div>
+          </a>
+        </li>
+        <li class="menu-item ">
+          <a  routerLink="quizzes" class="menu-link">
+            <div data-i18n="Connections">Show Quizzes</div>
+          </a>
+        </li>
+        <li class="menu-item ">
+          <a  routerLink="addQuiz" class="menu-link">
+            <div data-i18n="Connections">Add Quiz</div>
+          </a>
+        </li>
+      </ul>
+
+    </li>
+    <li class="menu-item active open" *ngIf="!checkUserAdmin()">
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <i class="menu-icon tf-icons bx bx-dock-top"></i>
+        <div data-i18n="Layouts">Show Categories</div>
+      </a>
+      <ul class="menu-sub" >
+        <li class="menu-item ">
+          <a routerLink="showQuizzes" class="menu-link">
+            <div data-i18n="Account">All Quizzes</div>
+          </a>
+        </li>
+
+        <li class="menu-item " *ngFor="let cat of category">
+          <a  routerLink="showQuizzes/{{cat.title}}" class="menu-link">
+            <div data-i18n="Connections">{{cat.title}}</div>
+          </a>
+        </li>
+
+      </ul>
+
+    </li>
+    <li class="menu-item active open" *ngIf="!checkUserAdmin()">
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <i class="menu-icon tf-icons bx bx-dock-top"></i>
+        <div data-i18n="Layouts">Services</div>
+      </a>
+      <ul class="menu-sub" >
+        <li class="menu-item ">
+          <a routerLink="/user/getPrices"class="menu-link">
+            <div data-i18n="Account">Buy Subscription</div>
+          </a>
+        </li>
+
+
+      </ul>
+
+    </li>
+
+    <!-- Layouts -->
+  </ul>
+
+
+
+
+</aside>
+

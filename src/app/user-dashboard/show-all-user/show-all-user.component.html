@@ -1,0 +1,32 @@
+
+<div class="card " style=" margin-top: 2%"  >
+  <h5 class="card-header">Attempted Quizzes</h5>
+  <div class="table-responsive text-nowrap">
+    <table class="table table-borderless">
+      <thead>
+        <tr>
+          <th>Title of Quiz</th>
+          <th>Your Marks</th>
+          <th>Total Marks</th>
+          <th>Pass/Fail</th>
+          <th>Show Details</th>
+          <th>Delete Attempt</th>
+
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let atte of attempts">
+
+          <td>{{atte.quiz.title}}</td>
+          <td >{{atte.totalMarks}}</td>
+          <td >{{atte.quiz.maxMarks}}</td>
+          <td class="{{atte.percentage>=35?'text-success':'text-danger'}}"><b>{{atte.percentage>=35?"Pass":"Fail"}}</b></td>
+          <td><button class="btn btn-primary color-white" (click)="showDetails(atte.attemptid)">Show Details</button></td>
+          <td><button class="btn btn-primary color-white" (click)="deleteDetail(atte.attemptid)">Delete Attempt</button></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,217 @@
+<div class="layout-page">
+
+
+
+  <div class="content-wrapper">
+    <!-- Content -->
+
+    <div class="container-xxl flex-grow-1 container-p-y">
+      <div class="row">
+        <div class="col-lg-8 mb-4 order-0">
+          <div class="card">
+            <div class="d-flex align-items-end row">
+              <div class="col-sm-7">
+                <div class="card-body">
+                  <h5 class="card-title text-primary">Hello Admin! 🎉</h5>
+                  <p class="mb-4">
+                    Welcome Admin!..
+                  </p>
+
+
+                </div>
+              </div>
+              <div class="col-sm-5 text-center text-sm-left">
+                <div class="card-body pb-0 px-0 px-md-4">
+                  <img src="../assets/img/illustrations/man-with-laptop-light.png" height="140" alt="View Badge User"
+                    data-app-dark-img="illustrations/man-with-laptop-dark.png"
+                    data-app-light-img="illustrations/man-with-laptop-light.png" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 order-1">
+          <div class="row">
+            <div class="col-lg-6 col-md-12 col-6 mb-4">
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-title d-flex align-items-start justify-content-between">
+                    <div class="avatar flex-shrink-0">
+                      <img src="../assets/img/icons/unicons/chart-success.png" alt="chart success" class="rounded" />
+                    </div>
+
+                  </div>
+                  <span class="">Total User</span>
+                  <h3 class="card-title mb-2">{{this.allUser.length}}</h3>
+
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-6 mb-4">
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-title d-flex align-items-start justify-content-between">
+                    <div class="avatar flex-shrink-0">
+                      <img src="../assets/img/icons/unicons/wallet-info.png" alt="Credit Card" class="rounded" />
+                    </div>
+
+                  </div>
+                  <span>Total Quiz</span>
+                  <h3 class="card-title text-nowrap mb-1">{{this.allQuizzes.length}}</h3>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Total Revenue -->
+        <div class="col-12 col-lg-8 order-2 order-md-3 order-lg-2 mb-4">
+          <div class="card " style=" margin-top: 2%" *ngIf="this.allUser.length>0">
+            <h5 class="card-header">All User</h5>
+            <div class="table-responsive text-nowrap">
+              <table class="table table-borderless">
+                <thead>
+                  <tr>
+                    <th>Number</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Show Details</th>
+                    <th>{{user.username == 'vraj@gmail.com'?'Update to User':''}}</th>
+                    <th>{{user.username == 'vraj@gmail.com'?'Ban The User':''}}</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                  <tr *ngFor="let atte of allUser;let i=index">
+
+                    <td>{{i+1}} <i class="bx {{atte.authorities[0].authority == 'Admin' ?  'bxs-star' :'' }} "
+                        style="color: #696cff; "></i></td>
+                    <td>{{atte.firstName + " " + atte.lastName}}</td>
+                    <td>{{atte.username}}</td>
+                    <td>{{atte.phoneNum}}</td>
+                    <td><button class="btn btn-primary color-white" (click)="showDetails(atte.userid)">Show
+                        Details</button></td>
+                    <td><button class="btn btn-primary color-white" (click)="changeToUser(atte.userid)" >{{user.username == 'vraj@gmail.com'?'Update to User':'Not Rights'}}</button></td>
+                    <td><button class="btn btn-primary color-white" (click)="banUser(atte.userid)" >{{user.username == 'vraj@gmail.com'?'Ban the User':'Not Rights'}}</button></td>
+
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+        <!--/ Total Revenue -->
+        <div class="col-12 col-md-8 col-lg-4 order-3 order-md-2">
+          <div class="row">
+            <div class="col-6 mb-4">
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-title d-flex align-items-start justify-content-between">
+                    <div class="avatar flex-shrink-0">
+                      <img src="../assets/img/icons/unicons/paypal.png" alt="Credit Card" class="rounded" />
+                    </div>
+
+
+                  </div>
+                  <span class="d-block mb-1">Total Category</span>
+                  <h3 class="card-title text-nowrap mb-2">{{this.allCategories.length}}</h3>
+
+                </div>
+              </div>
+            </div>
+            <div class="col-6 mb-4">
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-title d-flex align-items-start justify-content-between">
+                    <div class="avatar flex-shrink-0">
+                      <img src="../assets/img/icons/unicons/cc-primary.png" alt="Credit Card" class="rounded" />
+                    </div>
+
+                  </div>
+                  <span class="">Total Questions</span>
+                  <h3 class="card-title mb-2">{{this.allQuestions.length}}</h3>
+
+                </div>
+              </div>
+            </div>
+            <div class="col-12 mb-4">
+              <div class="card">
+                <div class="card h-100">
+                  <div class="card-header d-flex align-items-center justify-content-between">
+                    <h5 class="card-title m-0 me-2">Features</h5>
+
+                  </div>
+                  <div class="card-body">
+                    <ul class="p-0 m-0">
+                      <li class="d-flex mb-4 pb-1">
+                        <div class="avatar flex-shrink-0 me-3">
+                          <img src="../assets/img/icons/unicons/paypal.png" alt="User" class="rounded" />
+                        </div>
+                        <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                          <button type="submit" class="btn btn-primary form-control  color-white"
+                            routerLink="showCategories">Show Categories</button>
+                        </div>
+                      </li>
+                      <li class="d-flex mb-4 pb-1">
+                        <div class="avatar flex-shrink-0 me-3">
+                          <img src="../assets/img/icons/unicons/wallet.png" alt="User" class="rounded" />
+                        </div>
+                        <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                          <button type="submit" class="btn btn-primary form-control  color-white"
+                            routerLink="addCategory">Add Category</button>
+                        </div>
+                      </li>
+                      <li class="d-flex mb-4 pb-1">
+                        <div class="avatar flex-shrink-0 me-3">
+                          <img src="../assets/img/icons/unicons/chart.png" alt="User" class="rounded" />
+                        </div>
+                        <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                          <button type="submit" class="btn btn-primary form-control  color-white"
+                            routerLink="quizzes">Show Quizzes</button>
+                        </div>
+                      </li>
+                      <li class="d-flex mb-4 pb-1">
+                        <div class="avatar flex-shrink-0 me-3">
+                          <img src="../assets/img/icons/unicons/cc-success.png" alt="User" class="rounded" />
+                        </div>
+                        <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                          <button type="submit" class="btn btn-primary form-control  color-white"
+                            routerLink="addQuiz">Add Quiz</button>
+                        </div>
+                      </li>
+                      <li class="d-flex mb-4 pb-1">
+                        <div class="avatar flex-shrink-0 me-3">
+                          <img src="../assets/img/icons/unicons/wallet.png" alt="User" class="rounded" />
+                        </div>
+                        <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                          <button type="submit" class="btn btn-primary form-control  color-white"
+                            routerLink="myaccount">My Account</button>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+      </div>
+
+    </div>
+    <!-- / Content -->
+
+  </div>
+  <!-- Content wrapper -->
+</div>
+<!-- / Layout page -->
+
+
+<!-- Overlay -->
+
+<!-- / Layout wrapper -->

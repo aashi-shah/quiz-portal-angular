@@ -1,0 +1,22 @@
+<div class="container" >
+  <div class="card " *ngFor="let q of quizzes" style="margin-top:2% ;">
+    <div class="card-body row" style="height: 1%;">
+      <h5 class="card-header col-8"  >Title : {{q.title}}</h5>
+        <div class="btn-group col-4" style="display: inline; ">
+          <button  class="btn  btn-info " (click)="updateQuiz(q.quizid)" >Update</button>
+          <button  class="btn  btn-warning " (click)="deleteQuiz(q.quizid)" >Delete</button>
+          <button class="btn btn-{{q.active?'danger':'success'}}" (click)="isActiveCategory(q.quizid)">{{q.active?"Inactive":"Active"}}</button>
+        </div>
+
+    </div>
+    <div class="card-body">
+
+      <p class="card-text m-2">Description : {{q.description}}</p>
+      <button  class="btn btn-primary m-2  color-white">Total Marks {{q.maxMarks}}</button>
+      <button  class="btn btn-primary m-2  color-white">Total Number of Questions {{q.numberOfQuestions}}</button>
+      <button  class="btn btn-primary m-2  color-white">Each Question {{q.maxMarks/q.numberOfQuestions}} marks</button>
+      <button  class="btn btn-primary m-2  color-white">{{q.category.title}}</button>
+      <button  class="btn btn-primary m-2 border-purple color-white" (click)="showQuestions(q.quizid)">Show Questions</button>
+    </div>
+  </div>
+</div>

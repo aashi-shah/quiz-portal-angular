@@ -1,0 +1,101 @@
+<div class="col-xl container" style=" margin-top: 2%;">
+  <div class="card mb-4">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <h5 class="mb-0">Edit Question</h5>
+      <small class="text-muted float-end">*All Fields are Required</small>
+    </div>
+    <div class="card-body">
+      <form method="post">
+
+        <div class="mb-3">
+          <label class="form-label" for="basic-icon-default-company">Question</label>
+          <div class="input-group input-group-merge">
+
+            
+            <ckeditor
+              [editor]="Editor"
+              data="<p>Question!</p>"
+              class="form-control"
+              name="question"
+              [(ngModel)]="question.content"
+
+
+            ></ckeditor>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="basic-icon-default-company">First Option</label>
+          <div class="input-group input-group-merge">
+
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Option A"
+              name="option1"
+              [(ngModel)]="question.option1"
+            />
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="basic-icon-default-company">Second Option</label>
+          <div class="input-group input-group-merge">
+
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Option B"
+              name="option2"
+              [(ngModel)]="question.option2"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="basic-icon-default-company">Third Option</label>
+          <div class="input-group input-group-merge">
+
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Option C"
+              name="option3"
+              [(ngModel)]="question.option3"
+            />
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="basic-icon-default-company">Forth Option</label>
+          <div class="input-group input-group-merge">
+
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Option D"
+              name="option4"
+              [(ngModel)]="question.option4"
+            />
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="basic-icon-default-company">Select Category of Quiz</label>
+          <div class="input-group input-group-merge">
+            <span id="basic-icon-default-company2" class="input-group-text"
+              ><i class="bx bxs-category"></i
+            ></span>
+
+            <select class="form-control" name="category"  value="default" id="answer" [(ngModel)]="question.answer" >
+
+              <option   value="{{question.option1}}">A</option>
+              <option   value="{{question.option2}}">B</option>
+              <option   value="{{question.option3}}">C</option>
+              <option   value="{{question.option4}}">D</option>
+            </select>
+          </div>
+        </div>
+
+
+        <button type="submit" (click)="editQuestion()" class="btn btn-primary color-white">Update</button>
+      </form>
+    </div>
+  </div>
+</div>
